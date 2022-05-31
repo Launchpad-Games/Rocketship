@@ -49,6 +49,7 @@ declare module 'process' {
                 openssl: string;
             }
             type Platform = 'aix' | 'android' | 'darwin' | 'freebsd' | 'haiku' | 'linux' | 'openbsd' | 'sunos' | 'win32' | 'cygwin' | 'netbsd';
+            type Architecture = 'arm' | 'arm64' | 'ia32' | 'mips' | 'mipsel' | 'ppc' | 'ppc64' | 's390' | 's390x' | 'x64';
             type Signals =
                 | 'SIGABRT'
                 | 'SIGALRM'
@@ -94,7 +95,11 @@ declare module 'process' {
             type ExitListener = (code: number) => void;
             type RejectionHandledListener = (promise: Promise<unknown>) => void;
             type UncaughtExceptionListener = (error: Error, origin: UncaughtExceptionOrigin) => void;
-            type UnhandledRejectionListener = (reason: {} | null | undefined, promise: Promise<unknown>) => void;
+            /**
+             * Most of the time the unhandledRejection will be an Error, but this should not be relied upon
+             * as *anything* can be thrown/rejected, it is therefore unsafe to assume the the value is an Error.
+             */
+            type UnhandledRejectionListener = (reason: unknown, promise: Promise<unknown>) => void;
             type WarningListener = (warning: Error) => void;
             type MessageListener = (message: unknown, sendHandle: unknown) => void;
             type SignalsListener = (signal: Signals) => void;
@@ -142,7 +147,7 @@ declare module 'process' {
                 /**
                  * If true, a diagnostic report is generated when the process
                  * receives the signal specified by process.report.signal.
-                 * @defaul false
+                 * @default false
                  */
                 reportOnSignal: boolean;
                 /**
@@ -1045,7 +1050,7 @@ declare module 'process' {
                  * ```
                  * @since v0.5.0
                  */
-                readonly arch: string;
+                readonly arch: Architecture;
                 /**
                  * The `process.platform` property returns a string identifying the operating
                  * system platform on which the Node.js process is running.
@@ -1401,7 +1406,7 @@ declare module 'process' {
                 emit(event: 'unhandledRejection', reason: unknown, promise: Promise<unknown>): boolean;
                 emit(event: 'warning', warning: Error): boolean;
                 emit(event: 'message', message: unknown, sendHandle: unknown): this;
-                emit(event: Signals, signal: Signals): boolean;
+                emit(event: Signals, signal?: Signals): boolean;
                 emit(event: 'multipleResolves', type: MultipleResolveType, promise: Promise<unknown>, value: unknown): this;
                 emit(event: 'worker', listener: WorkerListener): this;
                 on(event: 'beforeExit', listener: BeforeExitListener): this;
