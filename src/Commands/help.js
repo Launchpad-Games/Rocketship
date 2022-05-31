@@ -11,9 +11,9 @@ module.exports = new Command({
             .setTitle("Help")
             .setDescription("Learn how to use Rocketship! Prefix is >")
             .setColor("#4e06dd")
-            .setThumbnail("https://cdn.discordapp.com/attachments/841823625081520188/899434624231563274/databasebot.png")
+            .setThumbnail("https://cdn.discordapp.com/attachments/780618724952113162/981053549364527214/rocketship.png")
             .setTimestamp()
-            .setURL("https://maxb0tbeep.github.io/databasebotsite/")
+            .setURL("https://launchpad-games.com")
 
             fs.readdirSync("./src/Commands")
 			    .filter(file => file.endsWith(".js"))

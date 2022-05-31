@@ -7,9 +7,11 @@
     "dev": "nodemon src/index.js",
     "start": "node ./src/index.js"
   },
+  "author": "Maxb0tbeep",
   "dependencies": {
     "discord.js": "^13.3.1",
     "fs": "^0.0.1-security",
+    "mongoose": "^6.1.2",
     "nodemon": "^2.0.15"
   }
 }
