@@ -5,7 +5,8 @@ module.exports = new Command({
     description: "Who knows what this could be? not me...",
 
     async run(message, args, client){
-        message.reply(`||We're no strangers to love||
+        message.channel.send(`<@${message.author}>
+||We're no strangers to love||
 ||You know the rules and so do I (do I)||
 ||A full commitment's what I'm thinking of||
 ||You wouldn't get this from any other guy||
@@ -27,7 +28,7 @@ module.exports = new Command({
 ||Never gonna let you down||
 ||Never gonna run around and desert you||
 ||Never gonna make you cry||`)
-        message.reply(`||Never gonna say goodbye||
+        message.channel.send(`||Never gonna say goodbye||
 ||Never gonna tell a lie and hurt you||
 ||Never gonna give you up||
 ||Never gonna let you down||
