@@ -5,7 +5,7 @@ module.exports = new Command({
     description: "Who knows what this could be? not me...",
 
     async run(message, args, client){
-        message.channel.send(`<@${message.author}>
+        message.channel.send(`${message.author}
 ||We're no strangers to love||
 ||You know the rules and so do I (do I)||
 ||A full commitment's what I'm thinking of||
