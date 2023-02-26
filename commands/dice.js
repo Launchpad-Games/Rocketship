@@ -10,7 +10,7 @@ module.exports = {
             .setDescription("The type of the dice")
 			.addChoices(
 				{ name: 'D4', value: 4 },
-				{ name: 'D6', value: 6 },
+				{ name: 'D6 (Standard)', value: 6 },
 				{ name: 'D8', value: 8 },
                 { name: 'D10', value: 10 },
                 { name: 'D12', value: 12 },
