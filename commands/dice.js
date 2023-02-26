@@ -7,6 +7,7 @@ module.exports = {
         .addIntegerOption(option =>
 		option.setName('category')
 			.setRequired(true)
+            .setDescription("The type of the dice")
 			.addChoices(
 				{ name: 'D4', value: 4 },
 				{ name: 'D6', value: 6 },
