@@ -18,18 +18,6 @@ client.commands = new Collection();
 
 const uri = `mongodb+srv://${process.env.MONGO_LOGIN}@rocketship.ufjmwye.mongodb.net/rocketship?retryWrites=true&w=majority`
 
-const connectionParams={
-    useNewUrlParser: true,
-    useUnifiedTopology: true 
-}
-mongoose.connect(uri,connectionParams)
-    .then( () => {
-        console.log('Connected to MongoDB')
-    })
-    .catch( (err) => {
-        console.error(`Error connecting to MongoDB \n${err}`);
-    })
-
 const commandsPath = path.join(__dirname, 'commands');
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
@@ -57,5 +45,19 @@ for (const file of eventFiles) {
     }
 }
 
-client.login(process.env.TOKEN);
+const connectionParams={
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+}
+mongoose.connect(uri,connectionParams)
+    .then( () => {
+        console.log('Connected to MongoDB')
+
+        client.login(process.env.TOKEN);
+    })
+    .catch( (err) => {
+        console.error(`Error connecting to MongoDB \n${err}`);
+    })
+
+
 

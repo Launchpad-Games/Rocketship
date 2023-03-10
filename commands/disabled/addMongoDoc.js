@@ -1,17 +1,19 @@
 const { SlashCommandBuilder } = require('discord.js');
-const Level = require("../schemas/LevelSchema.js");
+const Economy = require("../schemas/EconomySchema.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
-		.setName('addlevel')
+		.setName('addmongodoc')
 		.setDescription('Test for adding levels with mongoDB'),
     async execute(interaction) {
-        await Level.create({
+        await Economy.create({
+            _id: interaction.user.id,
             username: interaction.user.tag,
-            userId: interaction.user.id,
-            level: 0
+            level: 0,
+            credits: 0,
+            xp: 0
         });
-
+        
         await interaction.reply('Done!');
     },
 };
