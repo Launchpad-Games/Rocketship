@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const Economy = require("../schemas/EconomySchema.js");
+const Economy = require("../../schemas/EconomySchema.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
