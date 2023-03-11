@@ -13,6 +13,7 @@
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "jsonfile": "^6.1.0",
-    "nodemon": "^2.0.20"
+    "mongoose": "^7.0.1",
+    "nodemon": "^2.0.21"
   }
 }

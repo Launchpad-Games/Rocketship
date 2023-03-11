@@ -3,6 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const dotenv = require('dotenv');
+const mongoose = require("mongoose");
 
 dotenv.config();
 const client = new Client({
@@ -14,6 +15,8 @@ const client = new Client({
     ]
 });
 client.commands = new Collection();
+
+const uri = `mongodb+srv://${process.env.MONGO_LOGIN}@rocketship.ufjmwye.mongodb.net/rocketship?retryWrites=true&w=majority`
 
 const commandsPath = path.join(__dirname, 'commands');
 const eventsPath = path.join(__dirname, 'events');
@@ -42,5 +45,19 @@ for (const file of eventFiles) {
     }
 }
 
-client.login(process.env.TOKEN);
+const connectionParams={
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+}
+mongoose.connect(uri,connectionParams)
+    .then( () => {
+        console.log('Connected to MongoDB')
+
+        client.login(process.env.TOKEN);
+    })
+    .catch( (err) => {
+        console.error(`Error connecting to MongoDB \n${err}`);
+    })
+
+
 
