@@ -10,7 +10,7 @@
   "author": "Maxb0tbeep",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.7.1",
+    "discord.js": "^14.8.0",
     "dotenv": "^16.0.3",
     "jsonfile": "^6.1.0",
     "mongoose": "^7.0.1",
