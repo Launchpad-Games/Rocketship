@@ -7,7 +7,12 @@ module.exports = {
 
         const eco = await Economy.findById(member.user.id).exec();
 
-        if (eco._id == null) {
+        try{
+            if (eco._id != null) {
+               
+                console.log("existing user joined") 
+            }
+        }catch(err){
             Economy.create({
                 _id: member.user.id,
                 username: member.user.tag,
@@ -16,7 +21,7 @@ module.exports = {
                 xp: 0
             });
 
-            console.log("new user created")
+            console.log("new user joined")
         }
     },
 };
