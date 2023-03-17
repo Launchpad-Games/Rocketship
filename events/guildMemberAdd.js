@@ -16,9 +16,8 @@ module.exports = {
             Economy.create({
                 _id: member.user.id,
                 username: member.user.tag,
-                level: 0,
-                credits: 0,
-                xp: 0
+                messages: 0,
+                credits: 0
             });
 
             console.log("new user joined")
