@@ -14,8 +14,8 @@ module.exports = {
 				{ name: 'D8', value: 8 },
                 { name: 'D10', value: 10 },
                 { name: 'D12', value: 12 },
-                { name: 'D20', value: 20 }
-            )),
+                { name: 'D20', value: 20 })
+            ),
     async execute(interaction) {
         const category = interaction.options.getInteger('category');
         const result = Math.floor(Math.random() * category) + 1
