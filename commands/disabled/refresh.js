@@ -20,9 +20,8 @@ module.exports = {
             await Economy.create({
                 _id: userIds[i],
                 username: user.tag,
-                level: 0,
-                credits: 0,
-                xp: 0
+                messages: 0,
+                credits: 0
             });
         }
         await interaction.reply('Done!');
