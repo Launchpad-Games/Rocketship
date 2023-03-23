@@ -58,6 +58,3 @@ mongoose.connect(uri,connectionParams)
     .catch( (err) => {
         console.error(`Error connecting to MongoDB \n${err}`);
     })
-
-
-
