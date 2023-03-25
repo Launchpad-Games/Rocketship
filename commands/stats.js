@@ -25,7 +25,7 @@ module.exports = {
       const credits = economyMap.get(user.id)?.credits || 0;
       const messages = economyMap.get(user.id)?.messages || 0;
 
-      const rankIndex = economyDocs.findIndex(doc => doc._id === user.id);
+      const rankIndex = economyDocs.findIndex(doc => doc._id === user.id) + 1;
 
       const userStatsEmbed = new EmbedBuilder()
         .setColor(0x8007f9)
