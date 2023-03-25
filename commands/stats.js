@@ -19,10 +19,13 @@ module.exports = {
         return;
       }
 
-      const eco = await Economy.findById(user.id).exec();
+      const economyDocs = await Economy.find().sort({ credits: -1 }).exec();
+      const economyMap = new Map(economyDocs.map(doc => [doc._id, doc]));
 
-      messages = eco.messages;
-      credits = eco.credits;
+      const credits = economyMap.get(user.id)?.credits || 0;
+      const messages = economyMap.get(user.id)?.messages || 0;
+
+      const rankIndex = economyDocs.findIndex(doc => doc._id === user.id);
 
       const userStatsEmbed = new EmbedBuilder()
         .setColor(0x8007f9)
@@ -31,6 +34,7 @@ module.exports = {
         .addFields(
           { name: 'Messages', value: messages.toString(), inline: true },
           { name: 'Credits', value: credits.toString()+"Δ", inline: true },
+          { name: 'Rank', value: `#${rankIndex}`, inline: true },
         )
         .setTimestamp()
     
