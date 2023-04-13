@@ -11,13 +11,13 @@ module.exports = {
               .setRequired(true)
               .setDescription("The user you want to duel")
             )
-        .addIntegerOption(user => 
-            user.setName("bet")
+        .addIntegerOption(bet => 
+            bet.setName("bet")
               .setRequired(true)
               .setDescription("The total amount you want to bet (you only have to pay half)")
             ),
     async execute(interaction) {
-        const user = interaction.options.getUser("user") ?? interaction.user;
+        const user = interaction.options.getUser("user");
         const bet = interaction.options.getInteger("bet");
 
         if(user.bot){
