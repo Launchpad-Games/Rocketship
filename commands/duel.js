@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, channelLink } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Economy = require("../schemas/EconomySchema.js");
 const { EmbedBuilder } = require('discord.js');
 
