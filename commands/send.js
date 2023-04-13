@@ -9,7 +9,7 @@ module.exports = {
         .addUserOption(user => 
             user.setName("user")
               .setRequired(true)
-              .setDescription("The user you want to duel")
+              .setDescription("user you want to send credits to")
             )
         .addIntegerOption(amount => 
             amount.setName("amount")
