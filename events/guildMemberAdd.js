@@ -19,8 +19,6 @@ module.exports = {
                 messages: 0,
                 credits: 0
             });
-
-            console.log("new user joined")
         }
     },
 };
