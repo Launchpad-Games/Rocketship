@@ -1,2 +1,2 @@
 # IMPORTANT:
-Moved to https://gitlab.com/launchpad-games/Rocketship
+Moved to https://gitlab.com/LaunchpadGames/Rocketship
